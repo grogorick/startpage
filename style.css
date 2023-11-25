@@ -1,0 +1,162 @@
+@import url(icomoon/style.css);
+
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+:root {
+  --site-size: 150pt;
+  --round: 40pt;
+}
+
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 50pt;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #8888;
+  text-align: center;
+  padding: 5pt 5pt 2pt;
+  outline: none;
+}
+
+input:hover, input:focus {
+  border-bottom-color: black;
+}
+
+.btn {
+  cursor: default;
+  padding: 10pt;
+  border-radius: 10pt;
+  border: none;
+  color: #888;
+  background: #8882;
+}
+
+.btn:hover {
+  color: black;
+  background: #8883;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#container, .site {
+  gap: 40pt 10pt;
+}
+
+.site {
+  display: flex;
+  flex-direction: row;
+}
+
+.site .before {
+  width: 20pt;
+  height: 100pt;
+  align-self: center;
+  border: 1px dashed transparent;
+  border-radius: 10pt;
+}
+
+.site .before.dragover {
+  border-color: #888;
+}
+
+.site .front, .site .back {
+  border: 1px solid #888;
+}
+
+.site .front:not(:hover) {
+  border-color: #8888;
+  opacity: .7;
+}
+
+.site .front {
+  position: relative;
+}
+
+.site .front .toggle {
+  position: absolute;
+  top: 10pt;
+  left: 20pt;
+}
+
+.site .front .toggle:not(:hover) {
+  color: #8888;
+  background: transparent;
+}
+
+.site .front:not(:hover) .toggle {
+  display: none;
+}
+
+.site .front, .site .front .link, .site .back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--site-size);
+  height: var(--site-size);
+  border-radius: var(--round);
+}
+
+.site .front .link {
+  border-radius: var(--round);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10pt;
+  padding-top: calc(10pt + 1em);
+}
+
+.site:not(.add) .front:not(:hover) .link .title {
+  visibility: hidden;
+}
+
+.site .back {
+  display: flex;
+  flex-direction: column;
+  gap: 16pt;
+}
+
+.site .back .buttons {
+  display: flex;
+  gap: 10pt;
+}
+
+.site .back .buttons button {
+  flex: 1;
+}
+
+.site.add .front:not(:hover) {
+  opacity: .2;
+}
+
+.site.add .front .link {
+  font-size: 10rem;
+  color: #8888;
+  padding: 0;
+}
